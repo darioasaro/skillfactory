@@ -7,7 +7,6 @@ function edad(anio,mes,dia){
 
 var fecha = new Date()
 var dia_hoy =  fecha.getDate()
-console.log(dia_hoy)
 var mes_hoy = fecha.getMonth() + 1
 var anio_hoy = fecha.getFullYear()
 
@@ -17,7 +16,6 @@ if((mes_hoy - mes) > 0){
     edad +=1
 }
 
-//debugger
 if ((mes_hoy - mes) == 0){
     
     if((dia_hoy - dia) > 0){
@@ -28,7 +26,7 @@ if ((mes_hoy - mes) == 0){
         console.log("Feliz Cumpleaños! hoy cumplis " edad)
     }
 }
-//debugger
+
 return edad
 
 }
