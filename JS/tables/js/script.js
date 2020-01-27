@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         edad : parseInt( document.getElementById("edad").value)
     }
 
-    personas.push(user)
+    
     insertarEnTabla(user)
 
     evento.target.reset()
@@ -46,9 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function insertarEnTabla(element){
     
     var fila = crearFila(element)
-                
-           
-           
+    
     if(element.edad > 13){
             var table = document.getElementById("tabla1")
             table.appendChild(fila)
@@ -62,8 +60,9 @@ document.addEventListener("DOMContentLoaded", function() {
  
 
   function crearFila(persona){
-    var fila = document.createElement("tr")
-   
+                
+                var fila = document.createElement("tr")
+                
                 var celda = document.createElement("td")
                 var texto = document.createTextNode(persona.nombre)
                 celda.appendChild(texto)
@@ -82,12 +81,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 var celda = document.createElement("td")
                 var exit = document.createElement("button")
                 exit.innerText = "delete"
+                exit.setAttribute("class","borrar")
+                exit.setAttribute("onclick","Borrar(this)")
+            
                 celda.appendChild(exit)
                 fila.appendChild(celda)
 
             
                 return fila;
   }
+
+function Borrar(t){
+  
+    var td = t.parentNode;
+    var tr = td.parentNode;
+    var datos =  tr.getElementsByTagName("td")
+    console.log(datos[1].value());  
+    var table = tr.parentNode;
+    table.removeChild(tr);
+}
+
+
 
   
     
